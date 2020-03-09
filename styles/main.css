@@ -18,6 +18,9 @@ header {
     margin: 1rem;
    
 }
+.criminal:hover{
+    background-color: blanchedalmond;
+}
 .officer {
     border: solid;
     width: 15em;
@@ -28,4 +31,5 @@ p {
     text-align: center;
     font-size: large;
 }
+
 

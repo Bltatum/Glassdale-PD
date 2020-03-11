@@ -6,8 +6,7 @@ export const getConvictions = () => {
     
     return fetch("https://criminals.glassdale.us/crimes")
         .then(response => response.json())
-        .then(
-            parsedCrimes => {
+        .then( parsedCrimes => {
                convictions = parsedCrimes
             }
         )

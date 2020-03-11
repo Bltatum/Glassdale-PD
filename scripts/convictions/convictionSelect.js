@@ -6,26 +6,18 @@ import { useConvictions } from "./convictionProvider.js"
 
 const contentTarget = document.querySelector(".filters__crime")
 
-const ConvictionSelect = () => {
+export const ConvictionSelect = () => {
     const convictions = useConvictions()
-
+     
     const render = convictionsCollection =>{
-        const option = convictionsCollection.map(
-          crimesObject => { 
-              return `<option>${crimesObject.name}</option>`
-            }
-        )
         contentTarget.innerHTML = `
             <select class="dropdown" id="crimeSelect">
                 <option value="0">Please select a crime...</option>
-                ${option}
-            </select>
-        `
+                ${convictionsCollection.map(singleConvinction =>{
+                    return `<option>${singleConvinction.name}</option>`})}
+            </select>`
     }
     render(convictions)
-
 }
     
 
-
-export default ConvictionSelect

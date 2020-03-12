@@ -4,20 +4,47 @@
  */
 import { useConvictions } from "./convictionProvider.js"
 
+const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".filters__crime")
 
-export const ConvictionSelect = () => {
-    const convictions = useConvictions()
-     
-    const render = convictionsCollection =>{
-        contentTarget.innerHTML = `
-            <select class="dropdown" id="crimeSelect">
-                <option value="0">Please select a crime...</option>
-                ${convictionsCollection.map(singleConvinction =>{
-                    return `<option>${singleConvinction.name}</option>`})}
-            </select>`
+// On the content target, listen for a "change" event.
+contentTarget.addEventListener("change", changeEvent => {
+  // Only do this if the `crimeSelect` element was changed
+    if (changeEvent.target.id === "crimeSelect") {
+        // Create custom event. Provide an appropriate name.
+       const theCrimeThatWasChosen = changeEvent.target.value
+       
+       const crimeChosenEvent = new CustomEvent("crimeChosen", {
+          detail: {
+              chosenCrime: theCrimeThatWasChosen
+          } 
+       })
+        // Dispatch to event hub
+        eventHub.dispatchEvent(crimeChosenEvent)
     }
-    render(convictions)
-}
+})
+export const ConvictionSelect = () => {
     
+    const convictions = useConvictions()
+    
+    const render = (convictionsCollection) => {
+    contentTarget.innerHTML = `
+             <select class="dropdown" id="crimeSelect">
+            <option value="0">Crimes</option>   
+            ${
+                convictionsCollection.map(singleConviction => {
+                    return `<option>${singleConviction.name}</option>`
+                })
+            }
+        </select> `
+        }
+    
+    render(convictions)
+
+}
+
+
+
+
+
 

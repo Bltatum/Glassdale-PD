@@ -38,10 +38,16 @@ header {
     margin: 1rem;
     background-color: lightblue;
 }
-p {
+.alibi__name {
+    font-size: larger;
     text-decoration: underline;
     text-align: center;
-    font-size: large;
 }
-
+button {
+margin-left: 5rem;
+border-radius: 15%;
+}
+button:hover{
+    background-color: lightslategray;
+}
 

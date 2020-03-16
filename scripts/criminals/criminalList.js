@@ -1,5 +1,6 @@
 import { useCriminals } from "./criminalDataProvider.js";
 import { criminal } from "./criminals.js";
+import { initializeDetailButtonEvents } from "./dialog.js";
 
 const contentTarget = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector(".container")
@@ -27,6 +28,7 @@ eventHub.addEventListener("crimeChosen", event => {
     for (const singleCriminal of guiltyCriminals) {
         contentTarget.innerHTML += criminal(singleCriminal)
     }
+    initializeDetailButtonEvents()
 })
 
 eventHub.addEventListener("criminalChosen", event =>{
@@ -47,6 +49,7 @@ eventHub.addEventListener("criminalChosen", event =>{
     for (const singleCriminal of selectedCriminal) {
         contentTarget.innerHTML += criminal(singleCriminal)
     }
+    initializeDetailButtonEvents()
 })
 
 export const criminalList = () => {
@@ -55,4 +58,5 @@ export const criminalList = () => {
     for (const singleCriminal of criminals) {
         contentTarget.innerHTML += criminal(singleCriminal)
     }
+    initializeDetailButtonEvents()
 } 

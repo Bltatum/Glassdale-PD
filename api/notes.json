@@ -1,9 +1,10 @@
 {
-    "notes": [
-        {
-        "text": " ",
-        "date": " ",
-        "suspect": " "
+  "notes": [
+    {
+      "id": 1,
+      "noteText": " ",
+      "timeStamp": " ",
+      "criminal": " "
     }
-]
+  ]
 }

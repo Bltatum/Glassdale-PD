@@ -7,7 +7,7 @@ import { getConvictions } from "./convictions/convictionProvider.js"
 import NoteForm from "./notes/noteForm.js"
 import { officerSelect } from "./officers/officerSelector.js"
 import { criminalSelect } from "./criminals/criminalSelect.js"
-import { initializeDetailButtonEvents } from "./dialog.js"
+//import { initializeDetailButtonEvents } from "./dialog.js"
 
 
 
@@ -26,4 +26,4 @@ getOfficers().then(officerSelect)
 
 getCriminals().then(criminalSelect)
 
-initializeDetailButtonEvents()
+//initializeDetailButtonEvents()

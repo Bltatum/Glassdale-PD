@@ -9,15 +9,12 @@ eventHub.addEventListener("crimeChosen", event => {
 
     // Get the criminals
     const criminals = useCriminals()
-
-    // Get the crime
+     // Get the crime
     const theCrimeThatWasChosen = event.detail.chosenCrime
-
-
-    // Look at all of the criminals and determine if each one is a vandal
+     // Look at all of the criminals and determine if each one is a vandal
     const guiltyCriminals = criminals.filter(criminal => {
         if (criminal.conviction === theCrimeThatWasChosen){ 
-            return true 
+            return true
         }
             return false
     }
@@ -28,6 +25,26 @@ eventHub.addEventListener("crimeChosen", event => {
 
     // Build it up again
     for (const singleCriminal of guiltyCriminals) {
+        contentTarget.innerHTML += criminal(singleCriminal)
+    }
+})
+
+eventHub.addEventListener("criminalChosen", event =>{
+   
+    const criminals = useCriminals()
+
+    const theCriminalThatWasChosen = event.detail.chosenCriminal
+
+    const selectedCriminal = criminals.filter(criminals =>{
+        if(criminals.name === theCriminalThatWasChosen){
+            return true
+        }
+        return false
+    }
+    )
+    contentTarget.innerHTML = ""
+    
+    for (const singleCriminal of selectedCriminal) {
         contentTarget.innerHTML += criminal(singleCriminal)
     }
 })

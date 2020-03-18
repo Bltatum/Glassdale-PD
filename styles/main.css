@@ -1,3 +1,7 @@
+@import "./filters.css";
+@import "./notes.css";
+
+
 body {
     background-color: lightgray;
 }
@@ -10,6 +14,7 @@ body {
 header {
     text-align: center;
     text-decoration: underline;
+
 }
  .criminalsContainer{
      display: flex;
@@ -27,6 +32,7 @@ header {
     width: 17em;
     margin: 1rem;
     background-color: crimson;
+    border-radius: 10%;
    
 }
 .criminal:hover{
@@ -37,6 +43,7 @@ header {
     width: 15em;
     margin: 1rem;
     background-color: lightblue;
+    border-radius: 10%;
 }
 .alibi__name {
     font-size: larger;
@@ -44,10 +51,20 @@ header {
     text-align: center;
 }
 button {
-margin-left: 5rem;
+    margin-left: 1rem;
 border-radius: 15%;
 }
 button:hover{
     background-color: lightslategray;
 }
+p {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.invisible {
+    display:none;
+}
+
+
 

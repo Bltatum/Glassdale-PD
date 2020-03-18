@@ -8,8 +8,9 @@ const dispatchStateChangeEvent = () => {
   //dispatching the C.E.
     eventHub.dispatchEvent(noteStateChangedEvent)
 }
+export const useNotes = () => notes.slice()
 //fetching notes from api
-const getNotes = () => {
+export const getNotes = () => {
     return fetch('http://localhost:8088/notes')
     //taking what was recieved(promise) and turning it into java
         .then(response => response.json())

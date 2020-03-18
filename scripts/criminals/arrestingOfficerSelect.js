@@ -1,6 +1,7 @@
-import { useOfficers } from "./officerProvider.js";
 
-const contentTarget = document.querySelector(".filters__officer")
+import { useOfficers } from "../officers/officerProvider.js";
+
+const contentTarget = document.querySelector(".filters__arrestingOfficer")
 const eventHub = document.querySelector(".container")
 
 contentTarget.addEventListener("change", changeEvent => {
@@ -22,7 +23,7 @@ export const officerSelect = () => {
     const render = (officerCollection) => {
     contentTarget.innerHTML = `
              <select class="dropdown" id="officerSelect">
-            <option value="0">Officer</option>   
+            <option value="0">Arresting Officer</option>   
             ${
                 officerCollection.map(singleOfficer => {
                     return `<option>${singleOfficer.name}</option>`
@@ -34,4 +35,3 @@ export const officerSelect = () => {
     render(officers)
 
 }
-

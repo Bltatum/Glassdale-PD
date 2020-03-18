@@ -1,13 +1,13 @@
 import { useCriminals } from "./criminalDataProvider.js";
 import { criminal } from "./criminals.js";
 import { initializeDetailButtonEvents } from "./dialog.js";
+import { useOfficers } from "../officers/officerProvider.js";
 
 const contentTarget = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("crimeChosen", event => {
     // Filter the list of criminal who committed the crime
-
     // Get the criminals
     const criminals = useCriminals()
      // Get the crime
@@ -47,6 +47,26 @@ eventHub.addEventListener("criminalChosen", event =>{
     contentTarget.innerHTML = ""
     
     for (const singleCriminal of selectedCriminal) {
+        contentTarget.innerHTML += criminal(singleCriminal)
+    }
+    initializeDetailButtonEvents()
+})
+
+eventHub.addEventListener("officerChosen", event =>{
+   
+    const criminals = useCriminals()
+    const theOfficerThatWasChosen = event.detail.chosenOfficer
+
+    const ArrestingOfficer = criminals.filter(criminal =>{
+        if(criminal.arrestingOfficer === theOfficerThatWasChosen){
+            return true
+        }
+        return false
+    }
+    )
+    contentTarget.innerHTML = ""
+    
+    for (const singleCriminal of ArrestingOfficer) {
         contentTarget.innerHTML += criminal(singleCriminal)
     }
     initializeDetailButtonEvents()

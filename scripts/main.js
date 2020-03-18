@@ -5,18 +5,18 @@ import { getCriminals } from "./criminals/criminalDataProvider.js"
 import { ConvictionSelect } from "./convictions/convictionSelect.js"
 import { getConvictions } from "./convictions/convictionProvider.js"
 import NoteForm from "./notes/noteForm.js"
-import { officerSelect } from "./officers/officerSelector.js"
 import { criminalSelect } from "./criminals/criminalSelect.js"
-//import { initializeDetailButtonEvents } from "./dialog.js"
+import { DisplayNotesButton } from "./notes/displayNotesButton.js"
+import { DisplayNoteFormButton } from "./notes/displayNotesFormButton.js"
+import "./notes/noteList.js"
+import { officerSelect } from "./criminals/arrestingOfficerSelect.js"
+import { DisplayOfficersButton } from "./officers/displayOfficers.js"
 
 
 
-//getOfficers().then(criminalSelect)
 
 
 getConvictions().then(ConvictionSelect)
-
-NoteForm()
 
 getCriminals().then(criminalList)
 
@@ -24,6 +24,13 @@ getOfficers().then(officerList)
 
 getOfficers().then(officerSelect)
 
+
 getCriminals().then(criminalSelect)
+
+DisplayOfficersButton()
+DisplayNoteFormButton()
+DisplayNotesButton()
+NoteForm()
+
 
 //initializeDetailButtonEvents()

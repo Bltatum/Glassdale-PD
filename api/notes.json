@@ -3,8 +3,14 @@
     {
       "id": 1,
       "noteText": " ",
-      "timestamp": " ",
+      "date": " ",
       "criminal": " "
+    },
+    {
+      "date": "2020-03-18",
+      "noteText": "This is a test!!!",
+      "criminal": "Brennen Tatum",
+      "id": 2
     }
   ]
 }

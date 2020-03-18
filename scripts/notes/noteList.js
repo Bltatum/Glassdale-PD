@@ -11,18 +11,31 @@ eventHub.addEventListener("eventStateChanged", customEvent =>{
 eventHub.addEventListener("allNotesClicked", customEvent => {
     render()
 })
+let visibility = false
+
+eventHub.addEventListener("allNotesClicked", e => {
+    visibility = !visibility
+    if(visibility) {
+        contentTarget.classList.remove("invisible")
+        
+    } else {
+        contentTarget.classList.add("invisible")
+        
+    }
+})
 
 const render = () =>{
    getNotes().then(()=>{
     const allTheNotes = useNotes()
-
-    contentTarget.innerHTML = allTheNotes.map(
+      contentTarget.innerHTML = allTheNotes.map(
         currentNoteObject => {
-        return Note(currentNoteObject)
+          return Note(currentNoteObject)
         }
         ).join(" ")
         
     })
-
+    contentTarget.classList.add("invisible")
 }
-   
+ export const noteListComponent = () =>{
+     render()
+ }   

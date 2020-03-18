@@ -20,15 +20,17 @@ let visibility = false
 contentTarget.addEventListener("click", clickEvent => {
 
     if (clickEvent.target.id === "saveNote") {
-
+        
+    const entryDate = document.querySelector("#noteDate").value    
    const noteText = document.querySelector("#noteText").value
    const criminalName = document.querySelector("#criminal").value
         // Make a new object representation of a note
         const newNote = {
-             // Key/value pairs here
+            // Key/value pairs here
+            date: entryDate,
            noteText: noteText,
            criminal: criminalName,
-           timestamp: Date.now()
+          
        
         }
          // Change API state and application state
@@ -41,8 +43,13 @@ contentTarget.addEventListener("click", clickEvent => {
 const render = () => {
     contentTarget.classList.add("invisible")
     contentTarget.innerHTML = `
-   
+    <form action="">
     <fieldset>
+        <label for="noteDate">Date of Entry</label>
+        <input type="date" name="noteDate" id="noteDate">
+    </fieldset>
+</form>
+   <fieldset>
     <label for="criminal">Perp:</label>
         <input type="text" id="criminal"></input>
      </fieldset>
@@ -50,8 +57,6 @@ const render = () => {
      <label for="noteText">Note:</label>
         <textarea type="text" id="noteText" rows= "2" cols=""></textarea>
      </fieldset>
-        
-
         <button id="saveNote">Save Note</button>
     `
 }

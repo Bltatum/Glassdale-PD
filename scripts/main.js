@@ -11,10 +11,9 @@ import { DisplayNoteFormButton } from "./notes/displayNotesFormButton.js"
 import "./notes/noteList.js"
 import { officerSelect } from "./criminals/arrestingOfficerSelect.js"
 import { DisplayOfficersButton } from "./officers/displayOfficers.js"
+import { noteListComponent } from "./notes/noteList.js"
 
-
-
-
+noteListComponent()
 
 getConvictions().then(ConvictionSelect)
 
@@ -23,7 +22,6 @@ getCriminals().then(criminalList)
 getOfficers().then(officerList)
 
 getOfficers().then(officerSelect)
-
 
 getCriminals().then(criminalSelect)
 

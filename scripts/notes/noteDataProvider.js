@@ -14,7 +14,7 @@ export const getNotes = () => {
     return fetch('http://localhost:8088/notes')
     //taking what was recieved(promise) and turning it into java
         .then(response => response.json())
-        //taking that java and storing it in a variable
+        //taking that java and storing it then putting it in notes
         .then(parsedNotes => {
             notes = parsedNotes
         })

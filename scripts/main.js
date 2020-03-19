@@ -12,6 +12,13 @@ import "./notes/noteList.js"
 import { officerSelect } from "./criminals/arrestingOfficerSelect.js"
 import { DisplayOfficersButton } from "./officers/displayOfficers.js"
 import { noteListComponent } from "./notes/noteList.js"
+import "./criminals/KnownAssociatesDialog.js"
+import { witnessListComponent } from "./witnesses/witnessList.js"
+import { displayWitnessButton } from "./witnesses/displayWitnessButton.js"
+
+
+
+witnessListComponent()
 
 noteListComponent()
 
@@ -25,6 +32,7 @@ getOfficers().then(officerSelect)
 
 getCriminals().then(criminalSelect)
 
+displayWitnessButton()
 DisplayOfficersButton()
 DisplayNoteFormButton()
 DisplayNotesButton()

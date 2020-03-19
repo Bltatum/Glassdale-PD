@@ -1,7 +1,7 @@
 import { useCriminals } from "./criminalDataProvider.js";
 import { criminal } from "./criminals.js";
 import { initializeDetailButtonEvents } from "./dialog.js";
-import { useOfficers } from "../officers/officerProvider.js";
+//import { useOfficers } from "../officers/officerProvider.js";
 
 const contentTarget = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector(".container")

@@ -35,6 +35,13 @@ header {
     border-radius: 10%;
    
 }
+.witnesses {
+    border: solid;
+    width: 17em;
+    margin: 1rem;
+    background-color: tan;
+    border-radius: 5%;
+}
 .criminal:hover{
     background-color: blanchedalmond;
 }
@@ -44,6 +51,13 @@ header {
     margin: 1rem;
     background-color: lightblue;
     border-radius: 10%;
+}
+.note {
+    border: solid;
+    width: 17em;
+    margin: 1rem;
+    background-color: white;
+    border-radius: 5%;
 }
 .alibi__name {
     font-size: larger;

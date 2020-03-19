@@ -1,16 +1,16 @@
 {
   "notes": [
     {
-      "id": 1,
-      "noteText": " ",
-      "date": " ",
-      "criminal": " "
-    },
-    {
       "date": "2020-03-18",
       "noteText": "This is a test!!!",
       "criminal": "Brennen Tatum",
       "id": 2
+    },
+    {
+      "date": "2020-03-19",
+      "noteText": "This is also a Test!!",
+      "criminal": "Brennen Tatum",
+      "id": 3
     }
   ]
 }

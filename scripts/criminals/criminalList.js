@@ -1,11 +1,27 @@
 import { useCriminals } from "./criminalDataProvider.js";
 import { criminal } from "./criminals.js";
-import { initializeDetailButtonEvents } from "./dialog.js";
-//import { useOfficers } from "../officers/officerProvider.js";
+//import { initializeDetailButtonEvents } from "./KnownAssociatesDialog.js";
+// import { useOfficers } from "../officers/officerProvider.js";
 
 const contentTarget = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector(".container")
 
+
+//event listener for known ass. button clicked
+contentTarget.addEventListener("click", e => {
+if(e.target.id.startsWith("associates--")) {
+    const[prefix, criminalID] = e.target.id.split("--")
+
+    const showAssociatesEvent = new CustomEvent("knownAssociatesClicked", {
+        detail: {
+            chosenCriminal: criminalID
+        }
+    })
+    eventHub.dispatchEvent(showAssociatesEvent)
+   }
+})
+
+//Event listener for crime chosen selector
 eventHub.addEventListener("crimeChosen", event => {
     // Filter the list of criminal who committed the crime
     // Get the criminals
@@ -28,9 +44,9 @@ eventHub.addEventListener("crimeChosen", event => {
     for (const singleCriminal of guiltyCriminals) {
         contentTarget.innerHTML += criminal(singleCriminal)
     }
-    initializeDetailButtonEvents()
+    //initializeDetailButtonEvents()
 })
-
+//Event listener for criminal chosen selector
 eventHub.addEventListener("criminalChosen", event =>{
    
     const criminals = useCriminals()
@@ -49,9 +65,9 @@ eventHub.addEventListener("criminalChosen", event =>{
     for (const singleCriminal of selectedCriminal) {
         contentTarget.innerHTML += criminal(singleCriminal)
     }
-    initializeDetailButtonEvents()
+    //initializeDetailButtonEvents()
 })
-
+//event Listener for arresting officer selector
 eventHub.addEventListener("officerChosen", event =>{
    
     const criminals = useCriminals()
@@ -69,8 +85,10 @@ eventHub.addEventListener("officerChosen", event =>{
     for (const singleCriminal of ArrestingOfficer) {
         contentTarget.innerHTML += criminal(singleCriminal)
     }
-    initializeDetailButtonEvents()
+    //initializeDetailButtonEvents()
 })
+// event listener for close button
+
 
 export const criminalList = () => {
     const criminals = useCriminals()
@@ -78,5 +96,5 @@ export const criminalList = () => {
     for (const singleCriminal of criminals) {
         contentTarget.innerHTML += criminal(singleCriminal)
     }
-    initializeDetailButtonEvents()
+    //initializeDetailButtonEvents()
 } 

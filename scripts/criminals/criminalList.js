@@ -5,21 +5,30 @@ import { criminal } from "./criminals.js";
 
 const contentTarget = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector(".container")
-
+let visibility = true
 
 //event listener for known ass. button clicked
 contentTarget.addEventListener("click", e => {
 if(e.target.id.startsWith("associates--")) {
-    const[prefix, criminalID] = e.target.id.split("--")
+    const[prefix, criminalId] = e.target.id.split("--")
 
     const showAssociatesEvent = new CustomEvent("knownAssociatesClicked", {
         detail: {
-            chosenCriminal: criminalID
+            chosenCriminal: criminalId
         }
     })
     eventHub.dispatchEvent(showAssociatesEvent)
    }
 })
+
+eventHub.addEventListener("witnessesClicked", e => {
+    visibility = !visibility
+
+    visibility
+        ? contentTarget.classList.remove("invisible")
+        : contentTarget.classList.add("invisible")
+})
+
 
 
 //Event listener for crime chosen selector

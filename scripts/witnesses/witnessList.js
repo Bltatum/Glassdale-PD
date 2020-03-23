@@ -5,17 +5,13 @@ import { witnesses } from "./witnesses.js"
 
 const contentTarget = document.querySelector(".witnessContainer")
 const eventHub = document.querySelector(".container")
-
-eventHub.addEventListener("witnessesClicked", e => {
-    render()
-})
 let visibility = false
 
 eventHub.addEventListener("witnessesClicked", e => {
     visibility = !visibility
     if(visibility) {
         contentTarget.classList.remove("invisible")
-        
+        render()
     } else {
         contentTarget.classList.add("invisible")
         
@@ -31,10 +27,5 @@ const render = () => {
             }
         ).join(" ")
     })
-    contentTarget.classList.add("invisible")
 }
 
-export const witnessListComponent =()=>{
-    render()
-    
-}

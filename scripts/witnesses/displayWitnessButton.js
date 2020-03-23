@@ -1,14 +1,14 @@
-const contnetTarget = document.querySelector(".witness__button")
+const contentTarget = document.querySelector(".witness__button")
 const eventHub = document.querySelector(".container")
 
-contnetTarget.addEventListener("click", clickEvent => {
+contentTarget.addEventListener("click", clickEvent => {
     if(clickEvent.target.id === "showWitnesses") {
-        const allWitnesses = new CustomEvent("witnessesClicked")
+        const allWitnessesClicked = new CustomEvent("witnessesClicked")
 
-        eventHub.dispatchEvent(allWitnesses)
+        eventHub.dispatchEvent(allWitnessesClicked)
     }
 })
 
 export const displayWitnessButton = () =>{
-    contnetTarget.innerHTML = "<button id='showWitnesses'>Show Witnesses</button>"
+    contentTarget.innerHTML = "<button id='showWitnesses'>Show Witnesses</button>"
 }

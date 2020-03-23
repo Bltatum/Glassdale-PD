@@ -15,16 +15,16 @@ import { noteListComponent } from "./notes/noteList.js"
 import "./criminals/KnownAssociatesDialog.js"
 import { witnessListComponent } from "./witnesses/witnessList.js"
 import { displayWitnessButton } from "./witnesses/displayWitnessButton.js"
+import { getNotes } from "./notes/noteDataProvider.js"
 
 
 
 witnessListComponent()
 
-noteListComponent()
 
 getConvictions().then(ConvictionSelect)
 
-getCriminals().then(criminalList)
+getCriminals().then(getNotes).then(criminalList).then(noteListComponent)
 
 getOfficers().then(officerList)
 

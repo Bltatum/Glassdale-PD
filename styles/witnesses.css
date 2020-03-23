@@ -1,0 +1,12 @@
+.witnessContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+ }
+ .witnesses {
+    border: solid;
+    width: 17em;
+    margin: 1rem;
+    background-color: tan;
+    border-radius: 5%;
+}

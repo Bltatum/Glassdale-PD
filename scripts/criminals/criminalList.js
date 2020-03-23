@@ -21,6 +21,7 @@ if(e.target.id.startsWith("associates--")) {
    }
 })
 
+
 //Event listener for crime chosen selector
 eventHub.addEventListener("crimeChosen", event => {
     // Filter the list of criminal who committed the crime

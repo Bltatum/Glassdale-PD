@@ -26,7 +26,6 @@ eventHub.addEventListener("knownAssociatesClicked", CustomEvent => {
     findTheCriminalDialog.showModal()
     
 })
-
 export const KnownAssociatesDialog = (associateObject) => {
     contentTarget.innerHTML =`
     <dialog class="dialog--criminal" id="associates">
@@ -34,9 +33,15 @@ export const KnownAssociatesDialog = (associateObject) => {
          return `
       <p class="alibi__name">${currentAssociateObject.name}</p>
       <p class="alibi__alibi">Alibi: ${currentAssociateObject.alibi}</li>`}).join("")}</p>
-      
+      <button class ="button" id= "button--close">Close</button>
     </dialog>
     `
+    eventHub.addEventListener("click", e =>{
+        if(e.target.id === "button--close"){
+         document.querySelector("#associates").close()
+        }
+     })
+    
 }
 
 

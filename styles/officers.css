@@ -1,0 +1,12 @@
+.officersContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+ }
+ .officer {
+    border: solid;
+    width: 15em;
+    margin: 1rem;
+    background-color: lightblue;
+    border-radius: 10%;
+}

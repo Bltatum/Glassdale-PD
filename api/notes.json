@@ -1,16 +1,11 @@
 {
   "notes": [
     {
-      "date": "2020-03-18",
-      "noteText": "This is a test!!!",
-      "criminal": "Brennen Tatum",
-      "id": 2
-    },
-    {
-      "date": "2020-03-19",
-      "noteText": "This is also a Test!!",
-      "criminal": "Brennen Tatum",
-      "id": 3
+      "date": "03-20-20",
+      "noteText": "This is where the perp notes go",
+      "name": "Brennen Tatum",
+      "id": 1,
+      "criminalId": 1
     }
   ]
 }

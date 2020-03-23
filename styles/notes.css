@@ -1,3 +1,20 @@
 .invisible {
     display:none;
 }
+.notesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+ }
+ .notesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+ }
+ .note {
+    border: solid;
+    width: 17em;
+    margin: 1rem;
+    background-color: white;
+    border-radius: 5%;
+}

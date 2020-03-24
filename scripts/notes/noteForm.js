@@ -1,5 +1,6 @@
 import { saveNote } from "./noteDataProvider.js"
 import {useCriminals} from "../criminals/criminalDataProvider.js"
+
 const contentTarget = document.querySelector(".noteFormContainer")
 const eventHub = document.querySelector(".container")
 
@@ -16,75 +17,51 @@ let visibility = false
     }
 })
 
-// Handle browser-generated click event in component
+// Handle browser-generated click event in compo       nent
 contentTarget.addEventListener("click", clickEvent => {
-
-    if (clickEvent.target.id === "saveNote") {
-        
-    const entryDate = document.querySelector("#noteDate").value    
-   const noteText = document.querySelector("#noteText").value
-   const criminalName = document.querySelector("#criminal").value
+       if (clickEvent.target.id === "saveNote") {
+         
+         const noteText = document.querySelector("#noteText").value
+         const criminalId = document.querySelector("#NotesCriminalSelect").value
    // Make a new object representation of a note
-        const newNote = {
-            // Key/value pairs here
-            date: entryDate,
-            criminal: criminalName,
-           noteText: noteText,
-
-          
-       
-        }
-         // Change API state and application state
+          const newNote = {
+            // Key/value pairs here           
+            criminal: parseInt(criminalId),
+            noteText: noteText,
+            timestamp: Date.now()
+          }
+          // Change API state and application state         
         saveNote(newNote)
     }
 })
-
-contentTarget.addEventListener("change", changeEvent => {
-    if(changeEvent.target.id === "criminal"){
-        const theChosenCriminal = changeEvent.target.value
-        const criminalChosenEvent = new CustomEvent("criminalChosen", {
-            detail: {
-                chosenCriminal: theChosenCriminal
-            } 
-        })
-
-        eventHub.dispatchEvent(criminalChosenEvent)
-    }
-})
-
-
-export const NoteForm = () =>{
-    
-    const criminal = useCriminals()
-   
- const render = (criminalCollection) => {
+                                                                                                              
+const render = () => {
     contentTarget.classList.add("invisible")
+    const criminals = useCriminals()
     
     contentTarget.innerHTML = `
-<form action="">
-    <fieldset>
-        <label for="noteDate">Date of Entry</label>
-        <input type="date" name="noteDate" id="noteDate">
-    </fieldset>
-</form>
-    <fieldset>
-      <select class="dropdown" id="criminal">
-       <option value="0">Criminal</option>   
-            ${ criminalCollection.map(singleCriminal => {
-                    return `<option>${singleCriminal.name}</option>`
-                })}
-        </select> 
-    </fieldset>
-    <fieldset>
-     <label for="noteText">Note:</label>
-        <textarea type="text" id="noteText" rows= "2" cols=""></textarea>
-     </fieldset>
-     
-        <button id="saveNote">Save Note</button>
-    `
+<fieldset class="noteFormInput">
+    <section>
+      <select class="noteDropdown" id="NotesCriminalSelect">
+       <option value="0">Perp</option>   
+        ${ 
+            criminals.map(singleCriminal => {
+               return `<option value="${singleCriminal.id}">${singleCriminal.name}</option>`
+            }).join("")
         }
-    render(criminal)
-    }
+        </select> 
+    </section>
+     <label for="noteText">Note</label>
+    <section>
+        <textarea type="text" id="noteText" rows= "2" cols="50"></textarea>
+        </section>
+        <button id="saveNote">Save Note</button>
+</fieldset> `
+        }
+export const NoteForm = () =>{
+   render()
+}
+    
     
         
 

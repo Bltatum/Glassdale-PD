@@ -8,26 +8,22 @@ import {NoteForm} from "./notes/noteForm.js"
 import { criminalSelect } from "./criminals/criminalSelect.js"
 import { DisplayNotesButton } from "./notes/displayNotesButton.js"
 import { DisplayNoteFormButton } from "./notes/displayNotesFormButton.js"
-import "./notes/noteList.js"
+//import "./notes/noteList.js"
 import { officerSelect } from "./criminals/arrestingOfficerSelect.js"
 import { DisplayOfficersButton } from "./officers/displayOfficers.js"
 import { noteListComponent } from "./notes/noteList.js"
 import "./criminals/KnownAssociatesDialog.js"
-//import { witnessListComponent } from "./witnesses/witnessList.js"
 import { displayWitnessButton } from "./witnesses/displayWitnessButton.js"
-import { getNotes } from "./notes/noteDataProvider.js"
-//import {noteFormCriminalSelect} from "../scripts/notes/noteFormCriminalSelector.js"
 import "./witnesses/witnessList.js"
-//getCriminals().then(noteFormCriminalSelect)
 
-
-
-//witnessListComponent()
 
 
 getConvictions().then(ConvictionSelect)
 
-getCriminals().then(getNotes).then(criminalList).then(noteListComponent)
+getCriminals()
+  .then(criminalList)
+  .then(noteListComponent)
+  .then(NoteForm)
 
 getOfficers().then(officerList)
 
@@ -40,6 +36,3 @@ DisplayOfficersButton()
 DisplayNoteFormButton()
 DisplayNotesButton()
 getCriminals().then(NoteForm)
-
-
-//initializeDetailButtonEvents()

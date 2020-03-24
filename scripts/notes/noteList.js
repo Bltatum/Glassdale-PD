@@ -1,4 +1,4 @@
-import { getNotes, useNotes } from "./noteDataProvider.js"
+import { getNotes, useNotes, deleteNote } from "./noteDataProvider.js"
 import { Note } from "./note.js"
 import { useCriminals } from "../criminals/criminalDataProvider.js"
 
@@ -25,17 +25,25 @@ eventHub.addEventListener("allNotesClicked", e => {
         
     }
 })
+//E.V. for deleting notes button clicked
+contentTarget.addEventListener("click", e =>{
+  if(e.target.id.startsWith("deleteNote--")){
+      const [pefix, noteId] = e.target.id.split("--")
+      deleteNote(noteId)
+  }
+})
 
 const render = () =>{
    getNotes().then(()=>{
     
     const allTheNotes = useNotes()
     const allTheCriminals = useCriminals()
-    
+
         contentTarget.innerHTML = allTheNotes.map(currentNoteObject => {
             const foundSingleCriminal = allTheCriminals.find(
-                singleCriminalObj => singleCriminalObj.id === currentNoteObject.criminalId
-            )
+                (singleCriminalObj) => {
+                   return currentNoteObject.criminal === singleCriminalObj.id
+                })
            return Note(currentNoteObject, foundSingleCriminal)
                 }
                   ).join(" ")

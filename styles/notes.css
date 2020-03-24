@@ -1,20 +1,37 @@
 .invisible {
     display:none;
 }
-.notesContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
- }
- .notesContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
- }
  .note {
     border: solid;
     width: 17em;
     margin: 1rem;
     background-color: white;
     border-radius: 5%;
+    border-color: grey;
+}
+.noteFormInput {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    text-align: center;
+    border: inset;
+    background-color: lightgray;
+    margin-top: 2rem;
+}
+#saveNote {
+    text-align: center;
+     margin: auto;
+}
+#deleteNote {
+    margin: 0rem;
+}
+.notesContainer{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-evenly;
+}
+
+h3 {
+    text-align: center;
+    text-decoration: underline;
 }

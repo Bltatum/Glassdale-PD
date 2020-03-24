@@ -6,25 +6,28 @@
 
 
 body {
-    background-color: lightgray;
+    background-image: url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/5-jail-cell-door-and-welded-iron-bars-allan-swart.jpg);
 }
 
 header {
     text-align: center;
-    text-decoration: underline;
-
+     
+}
+h1 {
+    color: darkgoldenrod;
+    font-size: 3rem;
 }
  
 button {
-    margin-left: 1rem;
 border-radius: 15%;
+
 }
 button:hover{
     background-color: lightslategray;
 }
 p {
     text-align: center;
-    text-decoration: underline;
+    
 }
 
 .invisible {

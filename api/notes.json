@@ -1,66 +1,10 @@
 {
   "notes": [
     {
-      "date": "03-20-20",
-      "noteText": "This is where the perp notes go",
-      "criminal": "Brennen Tatum",
-      "id": 1,
-      "criminalId": 0
-    },
-    {
-      "date": "",
-      "noteText": "test",
-      "criminal": "0",
-      "id": 2
-    },
-    {
-      "date": "2020-03-23",
-      "noteText": "test",
-      "criminal": "Rogelio Hills",
-      "id": 3
-    },
-    {
-      "date": "2020-03-23",
-      "criminal": "Nathanael Champlin",
-      "noteText": "test",
-      "id": 4
-    },
-    {
-      "date": "2020-03-23",
-      "criminal": "Ashlynn Buckridge",
-      "noteText": "test",
-      "id": 5
-    },
-    {
-      "date": "2020-03-23",
-      "criminal": "Ruben Fritsch",
-      "noteText": "ruben",
-      "id": 6
-    },
-    {
-      "date": "2020-03-23",
-      "criminal": "Ruben Fritsch",
-      "noteText": "ruben",
-      "id": 7
-    },
-    {
-      "date": "2020-03-23",
-      "criminal": "Samantha Heidenreich",
-      "noteText": "sam",
-      "criminalId": "criminal",
-      "id": 8
-    },
-    {
-      "date": "2020-03-23",
-      "criminal": "Cary Bauch",
-      "noteText": "test",
-      "id": 9
-    },
-    {
-      "date": "",
-      "criminal": "Jennie Koepp",
-      "noteText": "test",
-      "id": 10
+      "criminal": 1,
+      "noteText": "She was getting married. Likely not a suspect!",
+      "timestamp": 1585083125497,
+      "id": 1
     }
   ]
 }

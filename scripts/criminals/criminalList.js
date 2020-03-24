@@ -1,10 +1,9 @@
 import { useCriminals } from "./criminalDataProvider.js";
 import { criminal } from "./criminals.js";
-//import { initializeDetailButtonEvents } from "./KnownAssociatesDialog.js";
-// import { useOfficers } from "../officers/officerProvider.js";
 
 const contentTarget = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector(".container")
+
 let visibility = true
 
 //event listener for known ass. button clicked
@@ -54,7 +53,6 @@ eventHub.addEventListener("crimeChosen", event => {
     for (const singleCriminal of guiltyCriminals) {
         contentTarget.innerHTML += criminal(singleCriminal)
     }
-    //initializeDetailButtonEvents()
 })
 //Event listener for criminal chosen selector
 eventHub.addEventListener("criminalChosen", event =>{
@@ -75,7 +73,7 @@ eventHub.addEventListener("criminalChosen", event =>{
     for (const singleCriminal of selectedCriminal) {
         contentTarget.innerHTML += criminal(singleCriminal)
     }
-    //initializeDetailButtonEvents()
+    
 })
 //event Listener for arresting officer selector
 eventHub.addEventListener("officerChosen", event =>{
@@ -95,10 +93,7 @@ eventHub.addEventListener("officerChosen", event =>{
     for (const singleCriminal of ArrestingOfficer) {
         contentTarget.innerHTML += criminal(singleCriminal)
     }
-    //initializeDetailButtonEvents()
 })
-// event listener for close button
-
 
 export const criminalList = () => {
     const criminals = useCriminals()
@@ -106,5 +101,5 @@ export const criminalList = () => {
     for (const singleCriminal of criminals) {
         contentTarget.innerHTML += criminal(singleCriminal)
     }
-    //initializeDetailButtonEvents()
+    
 } 

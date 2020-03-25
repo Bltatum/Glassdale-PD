@@ -6,16 +6,19 @@ import { useCriminals } from "../criminals/criminalDataProvider.js"
 const contentTarget = document.querySelector(".notesContainer")
 const eventHub= document.querySelector(".container")
 
-eventHub.addEventListener("eventStateChanged", customEvent =>{
+let visibility = false
+
+
+eventHub.addEventListener("noteStateChanged", customEvent => {
     render()
 })
+
 
 eventHub.addEventListener("allNotesClicked", customEvent => {
     render()
 })
-let visibility = false
 
-eventHub.addEventListener("allNotesClicked", e => {
+eventHub.addEventListener("allNotesClicked", customEvent => {
     visibility = !visibility
     if(visibility) {
         contentTarget.classList.remove("invisible")
@@ -34,11 +37,19 @@ contentTarget.addEventListener("click", e =>{
 })
 
 const render = () =>{
+    
+    if (visibility) {
+        contentTarget.classList.remove("invisible")
+    }
+    else {
+        contentTarget.classList.add("invisible")
+    }
+
    getNotes().then(()=>{
     
-    const allTheNotes = useNotes()
-    const allTheCriminals = useCriminals()
-
+     const allTheNotes = useNotes()
+     const allTheCriminals = useCriminals()
+     
         contentTarget.innerHTML = allTheNotes.map(currentNoteObject => {
             const foundSingleCriminal = allTheCriminals.find(
                 (singleCriminalObj) => {
@@ -46,47 +57,13 @@ const render = () =>{
                 })
            return Note(currentNoteObject, foundSingleCriminal)
                 }
-                  ).join(" ")
+                  ).join(" ") 
+                  
         
     })
-    contentTarget.classList.add("invisible")
+    
 }
  export const noteListComponent = () =>{
      render()
  }   
 
-// const render = () =>{
-//     getNotes().then(()=>{
-//     const allTheNotes = useNotes()
-//     const allTheCriminals = useCriminals() 
-//    for (const singleNote of allTheNotes) {
-//        const foundSingleCriminal = allTheCriminals.find(singleCriminalObj => singleCriminalObj.id === singleNote.criminalID)
-//        contentTarget.innerHTML += Note(singleNote, foundSingleCriminal)
-       
-//    }
-// })
-// }
-// export const noteListComponent =()=>{
-//     render()
-// }
-
-// const render = (noteCollection, criminalCollection) => {
-//     contentTarget.innerHTML = noteCollection.map(note => {
-//         // Find the related criminal
-//         const relatedCriminal = criminalCollection.find(criminal => criminal.id === note.criminalId)
-
-//         return `
-//             <section class="note">
-//                 <h2>Note about ${relatedCriminal.name}</h2>
-//                 ${note.noteText}
-//             </section>
-//         `
-//     })
-// }
-
-// const noteListComponent = () => {
-//     const notes = useNotes()
-//     const criminals = useCriminals()
-
-//     render(notes, criminals)
-// }
